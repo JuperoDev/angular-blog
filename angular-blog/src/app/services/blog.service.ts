@@ -4,11 +4,10 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, Firestore } from 'firebase/firestore';
 
 // Define the BlogPost interface
-
 export interface BlogPost {
   title: string;
   author: string;
-  date: any; // Firestore Timestamp type
+  date: any; // Firestore Timestamp
   image: string;
   content: string;
   category: string;
@@ -21,13 +20,10 @@ export class BlogService {
   private firestore: Firestore;
 
   constructor() {
-
-
-// Initialize Firebase and Firestore
+    // Initialize Firebase and Firestore
     const app = initializeApp(environment.firebaseConfig);
     this.firestore = getFirestore(app);
   }
-
 
   // Fetch all posts from Firestore
   async getAllPosts(): Promise<BlogPost[]> {
