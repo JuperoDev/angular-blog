@@ -1,0 +1,19 @@
+<div class="blog-container">
+    <h1>Blog Posts</h1>
+    <div *ngIf="posts.length === 0">No posts found.</div>
+  
+    <!-- Loop through each post and display the content -->
+    <div class="post-card" *ngFor="let post of posts">
+      <h2>{{ post.title }}</h2>
+      <p><strong>Author:</strong> {{ post.author }}</p>
+      <!-- <p><strong>Date:</strong> {{ post.date.toDate() | date: 'longDate' }}</p> -->
+      <p><strong>Category:</strong> {{ post.category }}</p>
+      
+      <div class="image-container">
+        <img *ngIf="post.image" [src]="post.image" alt="Post Image" class="post-image">
+      </div>
+      
+      <p class="content">{{ post.content }}</p>
+    </div>
+  </div>
+  
