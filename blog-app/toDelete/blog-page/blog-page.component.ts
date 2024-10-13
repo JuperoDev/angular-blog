@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-blog-page',
-  standalone: true,
   templateUrl: './blog-page.component.html',
-  styleUrls: ['./blog-page.component.css'],
-  imports: [CommonModule] 
+  styleUrls: ['./blog-page.component.css']
 })
 export class BlogPageComponent implements OnInit {
-  articles: any[] = []; // guarda articulos
+  articles: any[] = [];
   error: string | null = null;
 
   constructor(private http: HttpClient) {}
@@ -29,7 +26,7 @@ export class BlogPageComponent implements OnInit {
         }));
       },
       error: (err) => {
-        this.error = `Error: ${err.message}`;
+        this.error = `Error fetching articles: ${err.message}`;
       }
     });
   }
